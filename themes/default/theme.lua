@@ -11,7 +11,7 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "JetBrains Mono 10"
+theme.font          = "JetBrains Mono 12"
 
 theme.bg_normal     = "#000000"
 --theme.bg_focus      = "#535d6c"
@@ -28,7 +28,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(2)
 theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_focus  = "#293841"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
