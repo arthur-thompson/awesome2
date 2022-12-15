@@ -15,7 +15,7 @@ theme.font          = "JetBrains Mono 10"
 
 theme.bg_normal     = "#000000"
 --theme.bg_focus      = "#535d6c"
-theme.bg_focus      = "#005577"
+theme.bg_focus      = "#293841"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
@@ -65,6 +65,8 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(25)
 theme.menu_width  = dpi(200)
+
+theme.menubar_height = dpi(22)
 
 -- You can add as many variables as
 -- you wish and access them by using

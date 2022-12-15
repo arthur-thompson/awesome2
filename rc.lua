@@ -240,7 +240,7 @@ cputemp = wibox.widget.textbox()
 vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C ", 2, {"acpitz"})
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = (22) })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -598,7 +598,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
+    awful.titlebar(c, {size = 22}) : setup {
         { -- Left
             awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
