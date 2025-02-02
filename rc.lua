@@ -55,7 +55,7 @@ beautiful.init(theme_path)
 beautiful.useless_gap = 12
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = "st"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -358,17 +358,6 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
-
-
-    -- Brightness
-
-    awful.key({ }, "XF86MonBrightnessDown", function ()
-        awful.util.spawn("light -U 5") end),
-    awful.key({ }, "XF86MonBrightnessUp", function ()
-        awful.util.spawn("light -A 5") end),
-
-
-
 
     awful.key({ modkey, "Control" }, "n",
               function ()
