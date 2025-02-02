@@ -52,10 +52,10 @@ end
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
 beautiful.init(theme_path)
 
---beautiful.useless_gap = 12
+beautiful.useless_gap = 12
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -68,8 +68,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
+    awful.layout.suit.floating,
    -- awful.layout.suit.tile.left,
    -- awful.layout.suit.tile.bottom,
    -- awful.layout.suit.tile.top,
@@ -216,11 +216,11 @@ vicious.register(volwidget, vicious.widgets.volume, "VOL:$1%", 1, "Master")
 
 -- Battery Status
 battwidget = wibox.widget.textbox()
-vicious.register(battwidget, vicious.widgets.bat, 'BAT0:$2% ', 61, 'BAT0')
+vicious.register(battwidget, vicious.widgets.bat, 'BAT:$2% ', 61, 'BAT0')
 
 -- Battery Status 2
-battwidget2 = wibox.widget.textbox()
-vicious.register(battwidget2, vicious.widgets.bat, 'BAT1:$2% ', 61, 'BAT1')
+--battwidget2 = wibox.widget.textbox()
+--vicious.register(battwidget2, vicious.widgets.bat, 'BAT1:$2% ', 61, 'BAT1')
 
 memwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.mem)
@@ -236,8 +236,12 @@ cpuwidget = wibox.widget.textbox()
 --                               { 1, "#AECF96" } } }
 vicious.register(cpuwidget, vicious.widgets.cpu, "CPU:$1%", 2)
 
+--cputemp = wibox.widget.textbox()
+--vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C ", 2, {acpitz})
 cputemp = wibox.widget.textbox()
-vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C ", 2, {"acpitz"})
+vicious.register(cputemp, vicious.widgets.thermal, " $1°C ", 2, "thermal_zone7")
+
+
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = (22) })
@@ -259,7 +263,7 @@ vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C ", 2, {"acpitz"})
 	        cpuwidget,
 	        cputemp,
 	    battwidget,
-	    battwidget2,
+--	    battwidget2,
 	    volwidget,
             --require("battery-widget") {},
             wibox.widget.systray(),
@@ -635,5 +639,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.spawn.with_shell("~/.fehbg")
 --awful.spawn.with_shell("volumeicon")
-awful.spawn.with_shell("sxhkd -c ~/.config/sxhkd/sxhkdrc2")
---awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("sxhkd")
+awful.spawn.with_shell("nm-applet")
